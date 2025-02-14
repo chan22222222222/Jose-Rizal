@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jose Rizal</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Add CSS for the animation */
+        @keyframes moveText {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        #animated-text, #author-text, #image {
+            animation: moveText 2s ease-out;
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="title">Jose Rizal</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="Rizal Vision.html">Rizal Vision</a></li>
+                <li><a href="#">Historical Background</a></li>
+                <li><a href="#">Legacy & Impact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="content">
+        <div class="text">
+            <p id="animated-text">The Philippines a Century Hence</p>
+            <p id="author-text">By Niel Enrera</p>
+            <p>Jose Protacio Rizal Mercado y Alonzo Realonda</p>
+            <div class="overview">Overview</div>
+            <div class="additional-info">
+                Dr. Jose Rizal wrote an essay titled "The Philippines a Century Hence" in which he attempted to predict the country’s future. Rizal outlined several scenarios for how the Philippines might evolve over the next century, the first of which was that our country would remain a Spanish colony.
+            </div>
+        </div>
+        <div class="image">
+            <img id="image" src="Ri.jpg" alt="Image">
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
