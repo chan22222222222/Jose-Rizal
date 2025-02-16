@@ -12,7 +12,6 @@
             transform: translateY(-20px);
             transition: opacity 1.5s ease-out, transform 1.5s ease-out;
         }
-
         /* Trigger the transition when the elements are in view */
         .content.visible #animated-text,
         .content.visible #author-text,
@@ -27,11 +26,11 @@
         <div class="title">Jose Rizal</div>
         <nav>
             <ul>
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="about.html" class="nav-link">About</a></li>
-                <li><a href="Rizal Vision.html" class="nav-link">Rizal Vision</a></li>
-                <li><a href="#" class="nav-link">Historical Background</a></li>
-                <li><a href="#" class="nav-link">Legacy & Impact</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="rizal-vision.html">Rizal Vision</a></li>
+                <li><a href="#">Historical Background</a></li>
+                <li><a href="#">Legacy & Impact</a></li>
             </ul>
         </nav>
     </header>
@@ -60,7 +59,7 @@
                         observer.unobserve(content);
                     }
                 });
-            }, { threshold: 0.5 }); // Trigger when 50% of the content is visible
+            }, { threshold: 0.5 });
             observer.observe(content);
         });
     </script>
