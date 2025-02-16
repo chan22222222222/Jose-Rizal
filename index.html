@@ -6,21 +6,19 @@
     <title>Jose Rizal</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Add CSS for the animation */
-        @keyframes moveText {
-            from {
-                transform: translateY(-100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+        /* Add CSS for smooth transitions */
+        #animated-text, #author-text, #image {
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 1.5s ease-out, transform 1.5s ease-out;
         }
 
-        #animated-text, #author-text, #image {
-            animation: moveText 2s ease-out;
-            animation-play-state: paused;
+        /* Trigger the transition when the elements are in view */
+        .content.visible #animated-text,
+        .content.visible #author-text,
+        .content.visible #image {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -51,6 +49,20 @@
             <img id="image" src="Ri.jpg" alt="Image">
         </div>
     </div>
-    <script src="script.js"></script>
+    <script>
+        // Add a script to trigger the transition when the content is in view
+        document.addEventListener("DOMContentLoaded", function() {
+            const content = document.querySelector(".content");
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        content.classList.add("visible");
+                        observer.unobserve(content);
+                    }
+                });
+            }, { threshold: 0.5 }); // Trigger when 50% of the content is visible
+            observer.observe(content);
+        });
+    </script>
 </body>
 </html>
