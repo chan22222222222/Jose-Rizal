@@ -12,6 +12,7 @@
             transform: translateY(20px);
             transition: opacity 1.5s ease-out, transform 1.5s ease-out;
         }
+
         /* Trigger the transition when the sections are in view */
         .section.visible .text,
         .section.visible .image img {
@@ -26,8 +27,8 @@
         <nav>
             <ul>
                 <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="about.html" class="nav-link">about</a></li>
-                <li><a href="rizal-vision.html" class="nav-link">Rizal Vision</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="Rizal Vision.html" class="nav-link">Rizal Vision</a></li>
                 <li><a href="#" class="nav-link">Historical Background</a></li>
                 <li><a href="#" class="nav-link">Legacy & Impact</a></li>
             </ul>
@@ -43,23 +44,32 @@
             <div class="image"><img src="image2.png" alt="Image 2"></div>
             <div class="text">Jose Rizal valued education as a powerful tool for national progress and enlightenment. He believed that knowledge and critical thinking could empower Filipinos to break free from colonial oppression. Rizal himself was a dedicated scholar, studying in prestigious institutions such as Ateneo Municipal de Manila and the University of Santo Tomas before earning his medical degree in Madrid. His writings, including The Indolence of the Filipino and The Philippines A Century Hence, emphasized the need for accessible, quality education. He criticized the Spanish colonial education system for promoting blind obedience instead of intellectual growth, advocating for reforms that would nurture independent thought and scientific inquiry among Filipinos.</div>
         </div>
+        <div class="section">
+            <div class="text">Jose Rizal’s legacy continues to inspire generations of Filipinos in the pursuit of freedom, education, and national identity. His writings, particularly Noli Me Tangere and El Filibusterismo, exposed the injustices of Spanish rule and awakened Filipino nationalism. Beyond his literary works, Rizal’s advocacy for peaceful reform and intellectual empowerment laid the foundation for the Philippine revolution. His martyrdom on December 30, 1896, solidified his status as a national hero, symbolizing the courage to fight for justice and self-determination. Today, his ideals live on through the educational institutions, monuments, and laws dedicated to preserving his memory and teachings.</div>
+            <div class="image"><img src="image3.png" alt="Image 3"></div>
+        </div>
     </div>
     <script>
         // Add a script to trigger the transition when sections are in view
         document.addEventListener("DOMContentLoaded", function () {
             const sections = document.querySelectorAll(".section");
+
             const observer = new IntersectionObserver(
                 (entries) => {
                     entries.forEach((entry) => {
                         if (entry.isIntersecting) {
+                            // Add the 'visible' class when the section is in view
                             entry.target.classList.add("visible");
                         } else {
+                            // Remove the 'visible' class when the section is out of view
                             entry.target.classList.remove("visible");
                         }
                     });
                 },
-                { threshold: 0.5 }
+                { threshold: 0.5 } // Trigger when 50% of the section is visible
             );
+
+            // Observe each section
             sections.forEach((section) => observer.observe(section));
         });
     </script>
