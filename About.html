@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Jose Rizal</title>
     <link rel="stylesheet" href="about.css">
+    <style>
+        /* Add CSS for smooth transitions */
+        .section .text, .section .image img {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+        }
+
+        /* Trigger the transition when the sections are in view */
+        .section.visible .text,
+        .section.visible .image img {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -34,5 +49,29 @@
             <div class="image"><img src="image3.png" alt="Image 3"></div>
         </div>
     </div>
+    <script>
+        // Add a script to trigger the transition when sections are in view
+        document.addEventListener("DOMContentLoaded", function () {
+            const sections = document.querySelectorAll(".section");
+
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            // Add the 'visible' class when the section is in view
+                            entry.target.classList.add("visible");
+                        } else {
+                            // Remove the 'visible' class when the section is out of view
+                            entry.target.classList.remove("visible");
+                        }
+                    });
+                },
+                { threshold: 0.5 } // Trigger when 50% of the section is visible
+            );
+
+            // Observe each section
+            sections.forEach((section) => observer.observe(section));
+        });
+    </script>
 </body>
 </html>
